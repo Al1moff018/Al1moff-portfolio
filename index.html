@@ -1,0 +1,1627 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080b16">
+    <meta name="description" content="Alimov Mo'minmirzo — dasturlash, tibbiyot, katta maqsadlar va kelajak sari yo'l.">
+    <title>Alimov Mo'minmirzo | My Journey</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #080b16;
+            --bg-secondary: #0e1323;
+            --card: rgba(255,255,255,0.045);
+            --card-hover: rgba(255,255,255,0.075);
+            --text: #f4f5ff;
+            --muted: #9ba5bb;
+            --purple: #a78bfa;
+            --blue: #60a5fa;
+            --cyan: #67e8f9;
+            --border: rgba(255,255,255,0.09);
+            --gradient: linear-gradient(120deg,#a78bfa,#60a5fa,#67e8f9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        body.light {
+            --bg: #f4f6ff;
+            --bg-secondary: #e9edfa;
+            --card: rgba(255,255,255,0.75);
+            --card-hover: #fff;
+            --text: #171c30;
+            --muted: #626b82;
+            --border: rgba(30,40,70,0.12);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0;
+            background: var(--gradient);
+            z-index: 9999;
+        }
+
+        .background-glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: .13;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-one {
+            background: #8957ff;
+            top: -180px;
+            left: -150px;
+        }
+
+        .glow-two {
+            background: #168cff;
+            top: 900px;
+            right: -250px;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8,11,22,.78);
+            backdrop-filter: blur(22px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        body.light header {
+            background: rgba(244,246,255,.85);
+        }
+
+        nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Manrope',sans-serif;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--muted);
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .icon-btn {
+            width: 39px;
+            height: 39px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 90px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr .75fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 25px;
+            background: var(--card);
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 12px #4ade80;
+        }
+
+        .hero h1 {
+            font-family: 'Manrope',sans-serif;
+            font-size: clamp(42px,6.5vw,77px);
+            line-height: 1.12;
+            letter-spacing: -4px;
+            font-weight: 800;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 570px;
+            margin: 25px 0 30px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 23px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            transition: .3s;
+            border: 1px solid var(--border);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #090d1b;
+            border: none;
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(100,120,255,.16);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit {
+            width: 340px;
+            height: 340px;
+            border: 1px solid rgba(167,139,250,.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .orbit::before,
+        .orbit::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(96,165,250,.2);
+            border-radius: 50%;
+        }
+
+        .orbit::before {
+            width: 270px;
+            height: 270px;
+        }
+
+        .orbit::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        .monogram {
+            width: 160px;
+            height: 160px;
+            border-radius: 45px;
+            background: linear-gradient(135deg,#8b5cf6,#2563eb,#06b6d4);
+            display: grid;
+            place-items: center;
+            font-family: 'Manrope',sans-serif;
+            font-size: 52px;
+            font-weight: 800;
+            box-shadow: 0 0 100px rgba(139,92,246,.35);
+            transform: rotate(-8deg);
+            z-index: 2;
+        }
+
+        .orbit-label {
+            position: absolute;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 9px 14px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .label-one {
+            top: 20px;
+            right: -20px;
+        }
+
+        .label-two {
+            bottom: 25px;
+            left: -30px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 2px;
+        }
+
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-13px); }
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 105px 0;
+            scroll-margin-top: 70px;
+        }
+
+        .section-heading {
+            margin-bottom: 48px;
+        }
+
+        .eyebrow {
+            color: var(--purple);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Manrope',sans-serif;
+            font-size: clamp(29px,4vw,43px);
+            line-height: 1.25;
+            letter-spacing: -1.5px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            margin-top: 13px;
+            max-width: 650px;
+            font-size: 14px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .glass-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 30px;
+            backdrop-filter: blur(15px);
+            transition: .35s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: var(--card-hover);
+            border-color: rgba(167,139,250,.35);
+        }
+
+        .about-main {
+            grid-row: span 2;
+        }
+
+        .card-icon {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: linear-gradient(135deg,rgba(167,139,250,.2),rgba(96,165,250,.2));
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .glass-card h3 {
+            font-family: 'Manrope',sans-serif;
+            font-size: 19px;
+            margin-bottom: 13px;
+        }
+
+        .glass-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .tag {
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 6px 12px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* STORY */
+
+        .story {
+            background: linear-gradient(180deg,transparent,rgba(99,102,241,.045),transparent);
+        }
+
+        .story-layout {
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+            gap: 60px;
+        }
+
+        .story-quote {
+            font-family: 'Manrope',sans-serif;
+            font-size: 25px;
+            line-height: 1.6;
+            font-weight: 700;
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .story-quote span {
+            color: var(--purple);
+        }
+
+        .story-content {
+            border-left: 1px solid rgba(167,139,250,.3);
+            padding-left: 35px;
+        }
+
+        .story-item {
+            position: relative;
+            margin-bottom: 42px;
+        }
+
+        .story-item::before {
+            content: "";
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--purple);
+            left: -41px;
+            top: 9px;
+            box-shadow: 0 0 15px rgba(167,139,250,.5);
+        }
+
+        .story-item h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .story-item p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 2;
+        }
+
+        /* DIFFICULTIES */
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 17px;
+        }
+
+        .challenge-card {
+            padding: 25px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 19px;
+        }
+
+        .challenge-number {
+            font-family: 'Manrope',sans-serif;
+            font-size: 34px;
+            font-weight: 800;
+            color: rgba(167,139,250,.65);
+            margin-bottom: 17px;
+        }
+
+        .challenge-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .challenge-card p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        /* TWO DIRECTIONS */
+
+        .direction-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .direction-card {
+            padding: 35px;
+            border-radius: 25px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .direction-card::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: .2;
+            right: -80px;
+            top: -80px;
+            background: var(--purple);
+        }
+
+        .direction-card.medical::after {
+            background: #22d3ee;
+        }
+
+        .direction-emoji {
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        .direction-card h3 {
+            font-family: 'Manrope',sans-serif;
+            font-size: 25px;
+            margin-bottom: 14px;
+        }
+
+        .direction-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .direction-list {
+            list-style: none;
+            margin-top: 24px;
+            display: grid;
+            gap: 11px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .direction-list li {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .direction-list li::before {
+            content: "✦";
+            color: var(--purple);
+            margin-right: 10px;
+        }
+
+        /* GOALS */
+
+        .goal-box {
+            padding: 55px;
+            border-radius: 28px;
+            background: linear-gradient(120deg,rgba(139,92,246,.15),rgba(37,99,235,.13),rgba(6,182,212,.1));
+            border: 1px solid rgba(167,139,250,.2);
+            text-align: center;
+        }
+
+        .goal-box h2 {
+            font-family: 'Manrope',sans-serif;
+            font-size: clamp(29px,5vw,48px);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .goal-box p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: auto;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .goal-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .goal-badges span {
+            background: rgba(255,255,255,.06);
+            border: 1px solid var(--border);
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 11px;
+        }
+
+        /* ACHIEVEMENTS */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 17px;
+        }
+
+        .achievement {
+            display: flex;
+            gap: 18px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 19px;
+            background: var(--card);
+        }
+
+        .achievement-icon {
+            font-size: 28px;
+        }
+
+        .achievement h3 {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .achievement p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* VALUES */
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 14px;
+        }
+
+        .value {
+            text-align: center;
+            padding: 25px 12px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+        }
+
+        .value span {
+            font-size: 28px;
+        }
+
+        .value h3 {
+            font-size: 14px;
+            margin-top: 12px;
+        }
+
+        .value p {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 7px;
+        }
+
+        /* LETTER */
+
+        .letter {
+            max-width: 800px;
+            margin: auto;
+            padding: 42px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .letter::before {
+            content: "“";
+            position: absolute;
+            right: 30px;
+            top: -20px;
+            font-size: 100px;
+            line-height: 1;
+            color: rgba(167,139,250,.3);
+            font-family: Georgia,serif;
+        }
+
+        .letter p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 2.1;
+            margin-bottom: 15px;
+        }
+
+        .letter strong {
+            color: var(--text);
+        }
+
+        .letter-sign {
+            margin-top: 27px;
+            font-weight: 800;
+            color: var(--purple);
+        }
+
+        /* FINAL */
+
+        .final-section {
+            text-align: center;
+            padding-bottom: 110px;
+        }
+
+        .final-section h2 {
+            font-family: 'Manrope',sans-serif;
+            font-size: clamp(32px,6vw,59px);
+            letter-spacing: -2px;
+            line-height: 1.25;
+        }
+
+        .final-section p {
+            max-width: 580px;
+            margin: 20px auto 28px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 27px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* REVEAL */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: .8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:850px) {
+            .nav-links {
+                gap: 13px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                margin-top: 35px;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-main {
+                grid-row: auto;
+            }
+
+            .story-layout {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .story-quote {
+                position: static;
+            }
+
+            .challenge-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:600px) {
+            nav {
+                height: 68px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                padding: 22px 5%;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border);
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .orbit {
+                width: 270px;
+                height: 270px;
+            }
+
+            .orbit::before {
+                width: 215px;
+                height: 215px;
+            }
+
+            .orbit::after {
+                width: 160px;
+                height: 160px;
+            }
+
+            .monogram {
+                width: 125px;
+                height: 125px;
+                font-size: 40px;
+            }
+
+            .label-one {
+                right: -5px;
+            }
+
+            .label-two {
+                left: -5px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .challenge-grid,
+            .direction-grid,
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .glass-card,
+            .direction-card {
+                padding: 24px;
+            }
+
+            .goal-box {
+                padding: 35px 20px;
+            }
+
+            .letter {
+                padding: 28px 22px;
+            }
+
+            .footer-content {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .final-section h2 {
+                letter-spacing: -1px;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="progress" id="progress"></div>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header>
+        <nav class="container">
+
+            <a href="#home" class="logo">Al1moff<span>Dev.</span></a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Bosh sahifa</a>
+                <a href="#about">Men haqimda</a>
+                <a href="#story">Hikoyam</a>
+                <a href="#directions">Yo'nalishlar</a>
+                <a href="#goals">Maqsadlarim</a>
+                <a href="#achievements">Yutuqlarim</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="Rang rejimini almashtirish">☼</button>
+                <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menyuni ochish">☰</button>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="availability">
+                        <span class="dot"></span>
+                        O'rganish, izlanish va rivojlanish yo'lida
+                    </div>
+
+                    <h1>
+                        Men Alimov<br>
+                        <span class="gradient-text">Mo'minmirzo.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Men katta orzularga ega, bilim olishni va o'z ustida ishlashni
+                        yaxshi ko'radigan insonman. Dasturlash orqali texnologiyalar
+                        yaratish, tibbiyot orqali esa insonlar hayotiga foyda keltirishni
+                        maqsad qilganman. Bu mening hikoyam va kelajak sari yo'lim.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn btn-primary">Mening hikoyam <span>↗</span></a>
+                        <a href="#goals" class="btn btn-secondary">Maqsadlarim ↓</a>
+                    </div>
+
+                </div>
+
+                <div class="hero-visual">
+                    <div class="orbit">
+                        <div class="monogram">AM</div>
+                        <div class="orbit-label label-one">Future Surgeon 🩺</div>
+                        <div class="orbit-label label-two">Developer 💻</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="scroll-indicator">SCROLL TO EXPLORE ↓</div>
+        </section>
+
+        <!-- ABOUT -->
+
+        <section id="about">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">01 — INTRODUCTION</div>
+                    <h2 class="section-title">Men haqimda</h2>
+                    <p class="section-subtitle">
+                        Bir ism ortida shunchaki inson emas, balki orzular,
+                        qiziqishlar, izlanishlar va hali yozilmagan katta bir hikoya bor.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="glass-card about-main reveal">
+                        <div class="card-icon">👤</div>
+                        <h3>Alimov Mo'minmirzo</h3>
+
+                        <p>
+                            Men bilimni insonning eng katta boyliklaridan biri deb
+                            hisoblayman. Meni biror narsani shunchaki bilish emas,
+                            uning qanday ishlashini tushunish, yangi narsalar yaratish
+                            va o'rganganlarimni amalda qo'llash qiziqtiradi.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Hozirda asosiy e'tiborimni ta'lim, dasturlash, tabiiy fanlar
+                            va shaxsiy rivojlanishga qaratganman. Men uchun muvaffaqiyat
+                            faqat natija emas, balki shu natijaga olib boradigan
+                            mehnat va o'sish jarayonidir.
+                        </p>
+
+                        <div class="about-tags">
+                            <span class="tag">Curious Mind</span>
+                            <span class="tag">Developer</span>
+                            <span class="tag">Future Surgeon</span>
+                            <span class="tag">Lifelong Learner</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card reveal">
+                        <div class="card-icon">🧠</div>
+                        <h3>Fikrlash tarzim</h3>
+                        <p>
+                            Har bir muammoning yechimi borligiga ishonaman.
+                            Qiyin mavzular meni to'xtatmasligi, aksincha,
+                            ko'proq izlanishga undashi kerak deb hisoblayman.
+                        </p>
+                    </div>
+
+                    <div class="glass-card reveal">
+                        <div class="card-icon">🚀</div>
+                        <h3>Hayotiy qarashim</h3>
+                        <p>
+                            Inson o'z imkoniyatlarini doimo kengaytirishi mumkin.
+                            Bugungi mehnat ertangi imkoniyatlarning poydevoridir.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY -->
+
+        <section class="story" id="story">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">02 — MY JOURNEY</div>
+                    <h2 class="section-title">Mening hikoyam</h2>
+                    <p class="section-subtitle">
+                        Har bir katta maqsad kichik qadamlar bilan boshlanadi.
+                    </p>
+                </div>
+
+                <div class="story-layout">
+
+                    <div class="story-quote reveal">
+                        "Men qayerda ekanligim bilan emas,
+                        <span>qayerga intilayotganim</span> bilan
+                        o'zimni belgilayman."
+                    </div>
+
+                    <div class="story-content">
+
+                        <div class="story-item reveal">
+                            <h3>Qiziqishlardan boshlangan yo'l</h3>
+                            <p>
+                                Menda doimo yangi narsalarni o'rganishga qiziqish
+                                bo'lgan. Vaqt o'tishi bilan bu qiziqish oddiy
+                                mashg'ulotdan aniq maqsadlarga ega bo'lgan
+                                rivojlanish yo'liga aylandi.
+                            </p>
+                        </div>
+
+                        <div class="story-item reveal">
+                            <h3>Dasturlash olamiga kirish</h3>
+                            <p>
+                                Dasturlashni o'rganish orqali kompyuter faqat
+                                foydalaniladigan vosita emas, balki yangi g'oyalarni
+                                amalga oshirish imkoniyati ekanini tushundim.
+                                HTML, CSS va JavaScript asoslaridan boshlab,
+                                React va zamonaviy frontend texnologiyalarigacha
+                                izlanib bordim.
+                            </p>
+                        </div>
+
+                        <div class="story-item reveal">
+                            <h3>Qiziqishlarimning kengayishi</h3>
+                            <p>
+                                Dasturlash bilan birga biologiya, kimyo, fizika
+                                va tibbiyotga bo'lgan qiziqishim ham ortib bordi.
+                                Ayniqsa, inson organizmining ishlashi va
+                                jarrohlik sohasi meni o'ziga jalb qildi.
+                            </p>
+                        </div>
+
+                        <div class="story-item reveal">
+                            <h3>O'zimni sinab ko'rish</h3>
+                            <p>
+                                Turli loyihalar yaratish, murakkab mavzularni
+                                o'rganish, yangi texnologiyalarni sinash va
+                                bilimlarimni rivojlantirish menga tajriba berdi.
+                                Har bir loyiha yangi muammolar va yangi saboqlar
+                                olib keldi.
+                            </p>
+                        </div>
+
+                        <div class="story-item reveal">
+                            <h3>Bugun va ertaga</h3>
+                            <p>
+                                Bugun men hali o'rganish jarayonidaman.
+                                Oldimda katta maqsadlar bor. Men o'zimni faqat
+                                bugungi natijalar bilan cheklamayman, balki
+                                ertangi imkoniyatlarim uchun harakat qilaman.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHALLENGES -->
+
+        <section id="challenges">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">03 — LESSONS OF LIFE</div>
+                    <h2 class="section-title">Yo'ldagi qiyinchiliklar</h2>
+                    <p class="section-subtitle">
+                        Rivojlanish doimo oson kechmaydi. Qiyinchiliklar
+                        insonning fikrlashi va qarashlarini o'zgartiradigan saboqlardir.
+                    </p>
+                </div>
+
+                <div class="challenge-grid">
+
+                    <div class="challenge-card reveal">
+                        <div class="challenge-number">01</div>
+                        <h3>Murakkabliklardan o'tish</h3>
+                        <p>
+                            Yangi texnologiyalar va murakkab mavzularni o'rganish
+                            har doim ham oson emas. Ba'zan bir masala ustida
+                            uzoq vaqt ishlashga to'g'ri keladi. Bu menga
+                            sabr bilan izlanish muhimligini o'rgatdi.
+                        </p>
+                    </div>
+
+                    <div class="challenge-card reveal">
+                        <div class="challenge-number">02</div>
+                        <h3>Vaqt va mas'uliyat</h3>
+                        <p>
+                            Bir vaqtning o'zida ta'lim, dasturlash va boshqa
+                            qiziqishlarga vaqt ajratish oson emas.
+                            Bu esa rejalashtirish, ustuvorliklarni belgilash
+                            va intizomning ahamiyatini ko'rsatdi.
+                        </p>
+                    </div>
+
+                    <div class="challenge-card reveal">
+                        <div class="challenge-number">03</div>
+                        <h3>Xatolardan o'rganish</h3>
+                        <p>
+                            Har bir loyiha kutilganidek ishlamasligi mumkin.
+                            Xatolarni muvaffaqiyatsizlik deb emas,
+                            balki nimanidir yaxshiroq tushunish uchun
+                            imkoniyat deb qabul qilishni o'rganyapman.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="glass-card reveal" style="margin-top:20px;text-align:center">
+                    <h3>Men uchun muhim bir haqiqat</h3>
+                    <p>
+                        Qiyinchiliklar mening butun hikoyamni belgilamaydi.
+                        Muhimi, ulardan qanday xulosa chiqarishim va
+                        keyingi qadamimni qanday tashlashimdir.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIRECTIONS -->
+
+        <section id="directions">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">04 — MY PASSIONS</div>
+                    <h2 class="section-title">Mening ikki katta yo'nalishim</h2>
+                    <p class="section-subtitle">
+                        Bir tomonda texnologiya, ikkinchi tomonda inson hayoti.
+                        Bu ikki yo'nalish mening kelajak haqidagi tasavvurimda muhim o'rin tutadi.
+                    </p>
+                </div>
+
+                <div class="direction-grid">
+
+                    <div class="direction-card reveal">
+                        <div class="direction-emoji">💻</div>
+                        <h3>Dasturlash va texnologiya</h3>
+                        <p>
+                            Dasturlash men uchun shunchaki kod yozish emas.
+                            Bu g'oyalarni haqiqiy loyihalarga aylantirish,
+                            muammolarga yechim topish va yangi imkoniyatlar yaratishdir.
+                        </p>
+
+                        <ul class="direction-list">
+                            <li>HTML, CSS va JavaScript</li>
+                            <li>ReactJS va NextJS</li>
+                            <li>Python, Java va C++</li>
+                            <li>Frontend arxitekturasi va UI/UX</li>
+                            <li>Mustaqil loyihalar yaratish</li>
+                        </ul>
+                    </div>
+
+                    <div class="direction-card medical reveal">
+                        <div class="direction-emoji">🩺</div>
+                        <h3>Tibbiyot va jarrohlik</h3>
+                        <p>
+                            Tibbiyotga bo'lgan qiziqishimning markazida inson
+                            organizmini chuqur anglash va insonlarga yordam berish
+                            istagi turadi. Kelajakda jarrohlik sohasida
+                            professional mutaxassis bo'lishni xohlayman.
+                        </p>
+
+                        <ul class="direction-list">
+                            <li>Inson anatomiyasi</li>
+                            <li>Biologiya va fiziologiya</li>
+                            <li>Kimyo va tibbiy fanlar</li>
+                            <li>Jarrohlik nazariyasi va ilmiy izlanish</li>
+                            <li>Mas'uliyat va klinik fikrlash</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GOALS -->
+
+        <section id="goals">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">05 — THE FUTURE</div>
+                    <h2 class="section-title">Men erishmoqchi bo'lgan kelajak</h2>
+                </div>
+
+                <div class="goal-box reveal">
+                    <div class="eyebrow">MY BIGGEST DREAM</div>
+
+                    <h2>
+                        Kelajakda malakali<br>
+                        <span class="gradient-text">jarroh bo'lish.</span>
+                    </h2>
+
+                    <p>
+                        Bu men uchun shunchaki kasb tanlash emas.
+                        Bu katta bilim, yillar davomida tayyorgarlik,
+                        kuchli mas'uliyat va doimiy o'rganishni talab qiladigan
+                        hayotiy maqsad. Men kelajakda o'z sohasini chuqur
+                        biladigan, bemorlarga hurmat bilan munosabatda bo'ladigan
+                        va o'z bilimini insonlar manfaatiga sarflaydigan
+                        shifokor bo'lishni istayman.
+                    </p>
+
+                    <div class="goal-badges">
+                        <span>🎓 Kuchli ta'lim</span>
+                        <span>🧬 Ilmiy bilim</span>
+                        <span>🩺 Jarrohlik</span>
+                        <span>🤝 Insonlarga yordam</span>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal" style="margin-top:22px">
+                    <h3>Yana qanday kelajakni xohlayman?</h3>
+                    <p>
+                        Men faqat bitta sohada muvaffaqiyat qozonish bilan
+                        cheklanmoqchi emasman. Texnologiyalar va tibbiyot
+                        kesishgan nuqtada ham rivojlanishni istayman.
+                        Kelajakda tibbiy texnologiyalar, sun'iy intellekt
+                        va zamonaviy tibbiy yechimlar bilan ishlash ham
+                        mening qiziqishlarimdan biridir.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS -->
+
+        <section id="achievements">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">06 — MILESTONES</div>
+                    <h2 class="section-title">Mening yutuqlarim va ishlarim</h2>
+                    <p class="section-subtitle">
+                        Har bir yutuq — yangi mas'uliyat va keyingi maqsadlar sari qadam.
+                    </p>
+                </div>
+
+                <div class="achievement-grid">
+
+                    <div class="achievement reveal">
+                        <div class="achievement-icon">🏅</div>
+                        <div>
+                            <h3>Islom Karimov nomidagi stipendiya</h3>
+                            <p>
+                                Ushbu stipendiya sohibi bo'lish men uchun katta
+                                mas'uliyat, rag'bat va kelajakdagi maqsadlarimga
+                                yanada jiddiy qarash uchun motivatsiya.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="achievement reveal">
+                        <div class="achievement-icon">💻</div>
+                        <div>
+                            <h3>Frontend development</h3>
+                            <p>
+                                Ikki yildan ortiq vaqt davomida frontend
+                                texnologiyalarini o'rganish, amaliyot qilish
+                                va mustaqil loyihalar yaratish bilan shug'ullanaman.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="achievement reveal">
+                        <div class="achievement-icon">🌐</div>
+                        <div>
+                            <h3>Shaxsiy ta'lim loyihalari</h3>
+                            <p>
+                                Luminexa, dasturlashni o'rgatish platformasi,
+                                Java ta'lim loyihasi va boshqa veb-loyihalar
+                                ustida ishlash orqali tajriba orttiryapman.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="achievement reveal">
+                        <div class="achievement-icon">📚</div>
+                        <div>
+                            <h3>Mustaqil ta'lim</h3>
+                            <p>
+                                Dasturlash, tabiiy fanlar, ingliz tili va
+                                boshqa yo'nalishlarda bilimlarimni mustaqil
+                                ravishda kengaytirishga harakat qilaman.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUES -->
+
+        <section id="values">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">07 — MY PRINCIPLES</div>
+                    <h2 class="section-title">Men ishonadigan qadriyatlar</h2>
+                </div>
+
+                <div class="values-grid">
+
+                    <div class="value reveal">
+                        <span>🎯</span>
+                        <h3>Maqsad</h3>
+                        <p>Qayerga ketayotganingni bilish.</p>
+                    </div>
+
+                    <div class="value reveal">
+                        <span>📖</span>
+                        <h3>Bilim</h3>
+                        <p>Doimiy o'rganish va izlanish.</p>
+                    </div>
+
+                    <div class="value reveal">
+                        <span>⚡</span>
+                        <h3>Intizom</h3>
+                        <p>Harakatni davom ettirish.</p>
+                    </div>
+
+                    <div class="value reveal">
+                        <span>🤝</span>
+                        <h3>Mas'uliyat</h3>
+                        <p>O'z vazifalariga jiddiy qarash.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- LETTER -->
+
+        <section id="letter">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">08 — A MESSAGE TO MY FUTURE SELF</div>
+                    <h2 class="section-title">Kelajakdagi o'zimga maktub</h2>
+                </div>
+
+                <div class="letter reveal">
+
+                    <p>Salom, kelajakdagi Mo'minmirzo.</p>
+
+                    <p>
+                        Agar sen bu satrlarni o'qiyotgan bo'lsang,
+                        demak bugungi orzularingdan ancha uzoqqa yetib kelgansan.
+                    </p>
+
+                    <p>
+                        Umid qilamanki, sen o'sha paytdagi katta maqsadlaringni
+                        unutmagansan. Dasturlashni o'rgangan, yangi loyihalar
+                        yaratgan, ilm izlagan va jarroh bo'lishni orzu qilgan
+                        o'sha bolani esla.
+                    </p>
+
+                    <p>
+                        Yo'ling doimo oson bo'lmagan bo'lishi mumkin.
+                        Lekin qiyin kunlarda ham bilimga, halollikka va
+                        mehnatga bo'lgan hurmatingni yo'qotma.
+                    </p>
+
+                    <p>
+                        Agar maqsadlaringga erishgan bo'lsang, kamtar bo'l.
+                        Agar hali erishmagan bo'lsang, harakatni davom ettir.
+                        Chunki insonning qiymati faqat erishgan natijalarida emas,
+                        balki qanday inson bo'lib yetishganidadir.
+                    </p>
+
+                    <p>
+                        <strong>Hech qachon o'rganishdan to'xtama.
+                        Orzularingdan voz kechma.</strong>
+                    </p>
+
+                    <div class="letter-sign">
+                        Hurmat bilan, bugungi Mo'minmirzo.
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL -->
+
+        <section class="final-section">
+            <div class="container reveal">
+
+                <div class="eyebrow">THIS IS JUST THE BEGINNING</div>
+
+                <h2>
+                    Hikoyam hali<br>
+                    <span class="gradient-text">davom etmoqda.</span>
+                </h2>
+
+                <p>
+                    Men hali o'z yo'limning boshidaman.
+                    Oldinda o'rganiladigan bilimlar, yaratiladigan loyihalar
+                    va erishiladigan katta maqsadlar bor.
+                </p>
+
+                <a href="#home" class="btn btn-primary">Yuqoriga qaytish ↑</a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+
+            <a href="#home" class="logo">Al1moff<span>Dev.</span></a>
+
+            <p>© <span id="year"></span> Alimov Mo'minmirzo. All rights reserved.</p>
+
+            <div class="footer-links">
+                <a href="https://github.com/Alimoff018" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="https://al1moff-dev.great-site.net" target="_blank" rel="noopener noreferrer">Website ↗</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+        const themeBtn = document.getElementById("themeBtn");
+        const progress = document.getElementById("progress");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("show");
+            });
+        });
+
+        themeBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light");
+
+            themeBtn.textContent =
+                document.body.classList.contains("light") ? "☾" : "☼";
+        });
+
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const height =
+                document.documentElement.scrollHeight - window.innerHeight;
+
+            progress.style.width = (scrollTop / height * 100) + "%";
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+
+        document.querySelectorAll(".reveal").forEach(element => {
+            observer.observe(element);
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
